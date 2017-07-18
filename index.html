@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Freeboard Imitation</title>
+    <meta name="author" content="Timon Walther">
+
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+	
+	<!-- import of webcomponents -->
+	<link rel="import" href="chart-elements.html">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<script src="js/view.js"></script>	
+	</head>
+<body>
+<div style="width:100%; height:320px; color: white; margin:0; padding:0; padding-top:50px; padding-bottom: 50px;" >			
+	<h2 style="padding:0; margin:0;">Editor</h2>
+	
+		<br/>
+		<div id="content" style="height:300px; background: #222222">
+		
+			<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+				<li class="active"><a href="#dashboard" data-toggle="tab">New Widget</a></li>
+				<li><a href="#newWidget" data-toggle="tab">New Representation</a></li>
+				<li><a href="#contextmodel" data-toggle="tab">Contextmodel</a></li>
+			</ul>
+    
+		<div id="my-tab-content" class="tab-content" >
+        
+			<div class="tab-pane active" id="dashboard" >
+				<br/>
+				<br/>
+				
+	
+				<div style="padding-left:120px; height:100px; float:left;">
+				<a style="padding-left: 15px;" href="#" onclick="view.add(this);" count="0">+ ADD Pane</a>
+				<p style="padding-left: 15px;">Active Widget <span id="number">none</span></p> 
+				<div id="change" style="margin:0; padding:0;">
+				<ul class="nav nav-pills">
+					  <li class="dropdown" id="menu3">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">Properties<b class="caret"></b></a>
+						<form role="form" style="background:#222222;">
+							<div class="form-group">
+							<label for="email">Widget Name:</label>
+								<input type="text" class="form-control" id="email">
+							  </div>
+							  <div class="form-group">
+								<label for="pwd">Priorities:</label>
+								<input type="password" class="form-control" id="pwd">
+							  </div>
+	
+							  <button type="submit" class="btn btn-default">Save Properties</button>
+						</form>
+					  </li>
+					</ul>
+					</div>
+				</div>
+				
+			
+				<div style="padding-left:50px; width:200px; float:left;" id="sources">
+					<ul class="nav nav-pills">
+					  <li class="dropdown" id="menu1">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Data-Sources<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+						  <li><a href="#">Source 1</a></li>
+						  <li><a href="#">Source 2</a></li>
+						  <li><a href="#">Source 3</a></li>
+						  <li class="divider"></li>
+						  <li><a href="#">Source 4</a></li>
+						</ul>
+					  </li>
+					</ul>
+				</div>
+			
+				<div style=" float:left; margin: auto; width: 50%; margin-right:150px;" id="representations">
+					<div style="padding-left:300px; width:150px; float:left;">
+					<ul class="nav nav-pills">
+					  <li class="dropdown" id="menu2">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">Repräsentationen<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+						  <li><a href="#" onclick="view.addComponent('chartBar')">Chart-Bar</a></li>
+						  <li><a href="#" onclick="view.addComponent('chartLine')">Chart-Line</a></li>
+						  <li><a href="#" onclick="view.addComponent('chartPie')">Chart-Pie</a></li>
+						  <li><a href="#" onclick="view.addComponent('chartRadar')">Chart-Radar</a></li>
+						  <li><a href="#" onclick="view.addComponent('chartDoughnut')">Chart-Doughnut</a></li>
+						  <li><a href="#" onclick="view.addComponent('chartPolarArea')">Chart-Polar-Area</a></li>
+						  <li class="divider"></li>
+						  <li><a href="#">Delete Chart</a></li>
+						</ul>
+					  </li>
+					</ul>
+					</div>
+				</div>
+			
+			
+				<div style="display:block; clear:both;"></div>
+				
+
+				
+				<div style="background:black; width:100%; height:750px; color:white;" id="con"></div>
+				<div style="clear:both;"></div>
+				
+			</div>
+        
+			<div class="tab-pane" id="newWidget" style="padding-left:300px; padding-right:300px; ">
+	
+					 <div class="form-group" style="padding-top:50px;">
+					  <label for="newRepresentation">New Representation</label>
+					  <textarea class="form-control" rows="5" id="newRepresentation"></textarea>
+					</div>
+				<p></p>
+			</div>
+        
+			<div class="tab-pane" id="contextmodel" style="padding-left:300px;">
+				<h3>Contextmodel</h3>
+				<p></p>
+			</div>
+        
+		</div>
+
+</div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js"></script>
+
+<script>
+			jQuery(document).ready(function ($) {
+				$('#tabs').tab();
+				
+			});
+			
+			$('.dropdown-toggle').dropdown();
+			
+			var n1 = document.getElementById("sources");
+			var n2 = document.getElementById("representations");
+			var n3 = document.getElementById("change");
+			
+
+			n1.style.display = 'none';
+			n2.style.display = 'none';
+			n3.style.display = 'none';
+			
+</script>
+
+</body>
+</html>
